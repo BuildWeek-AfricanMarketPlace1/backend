@@ -3,7 +3,6 @@ const Items = require('./items-model')
 
 router.get('/user/:id', (req,res) => {
     Items.getItemsByUserId(req.params.id)
-    console.log(resp)
         .then(resp => {
             res.status(200).json({ resp })
         })
