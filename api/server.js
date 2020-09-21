@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const authRouter = require("../auth/auth-router.js");
 // const usersRouter = require("../users/users-router.js");
-const itemsRouter =require('../items/items-router')
+const itemsRouter = require('../items/items-router')
 
 const server = express();
 
@@ -18,7 +18,7 @@ server.use(
 );
 
 server.use('/api/auth', authRouter)
-server.use('api/items', itemsRouter)
+server.use('/api/items', itemsRouter)
 
 
 server.get("/", (req, res) => {
