@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    Locations.add()
+    Locations.add(req.body)
     .then(resp => {
         res.status(201).json({ data: resp })
     })
@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
     })
 })
 router.put('/:id', (req, res) => {
-    Locations.update(req.params.id)
+    Locations.update(req.body, req.params.id)
         .then(resp => {
             res.status(201).json({ data: resp})
         })
