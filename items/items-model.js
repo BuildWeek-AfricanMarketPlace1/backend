@@ -3,6 +3,7 @@ const db = require('../data/dbConfig')
 module.exports = {
     getItemsByUserId,
     getAllItems,
+    getItemById,
     addItem,
     updateItem,
     removeItem
@@ -21,6 +22,14 @@ function getAllItems() {
         .join('categories', 'categories.id', 'items.category_id')
         .select('items.id', 'items.user_id', 'locations.locname', 'categories.catname',
         'items.name', 'items.description', 'items.price')
+}
+function getItemById(id) {
+    return db('items')
+        .join('locations', 'locations.id', 'items.location_id')
+        .join('categories', 'categories.id', 'items.category_id')
+        .select('items.id', 'items.user_id', 'locations.locname', 'categories.catname',
+        'items.name', 'items.description', 'items.price')
+        .where({ 'items.id': id })
 }
 
 function addItem(item) {

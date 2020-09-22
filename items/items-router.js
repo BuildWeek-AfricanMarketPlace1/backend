@@ -22,6 +22,16 @@ router.get('/', (req, res) => {
           })
 })
 
+router.get('/:id', (req, res) => {
+    Items.getItemById(req.params.id)
+        .then(resp => {
+            res.status(200).json({ data: resp })
+        })
+        .catch((error) => {
+            res.status(500).json({ error: error.message })
+          })
+})
+
 router.post('/user', (req, res) => {
     Items.addItem(req.body)
         .then(resp => {
