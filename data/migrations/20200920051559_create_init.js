@@ -7,11 +7,11 @@ exports.up = function(knex) {
   })
   .createTable('locations', tbl => {
       tbl.increments()
-      tbl.string('name').notNullable().unique().index()
+      tbl.string('locname').notNullable().unique().index()
   })
   .createTable('categories', tbl => {
       tbl.increments()
-      tbl.string('name').notNullable().unique()
+      tbl.string('catname').notNullable().unique()
   })
   .createTable('items', tbl => {
       tbl.increments()

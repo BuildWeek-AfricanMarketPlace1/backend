@@ -20,3 +20,4 @@ API - These are the endpoints and required information
 | POST   | /api/items/user/:id| Yes        | Add item by user id                    |
 | PUT    | /api/items/:id     | Yes        | Edit item by item id                   |
 | DELETE | /api/items/:id     | Yes        | Deletes a specific item by id          |
+

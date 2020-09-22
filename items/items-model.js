@@ -17,6 +17,10 @@ function getItemsByUserId(id) {
 
 function getAllItems() {
     return db('items')
+        .join('locations', 'locations.id', 'items.location_id')
+        .join('categories', 'categories.id', 'items.category_id')
+        .select('items.id', 'items.user_id', 'locations.locname', 'categories.catname',
+        'items.name', 'items.description', 'items.price')
 }
 
 function addItem(item) {
