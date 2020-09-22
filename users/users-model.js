@@ -3,7 +3,8 @@ const db = require('../data/dbConfig')
 module.exports = {
     add,
     findById,
-    findBy
+    findBy,
+    editUser
 }
 
 async function add(user) {
@@ -25,4 +26,7 @@ function findBy(filter) {
         .where(filter)
         .orderBy("u.id")
         .select("u.id", "u.email", "u.password");
+}
+function editUser() {
+
 }
