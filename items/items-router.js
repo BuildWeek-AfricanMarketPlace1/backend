@@ -1,6 +1,4 @@
 const router =require('express').Router()
-const { update } = require('../data/dbConfig')
-const { getItemsByUserId } = require('./items-model')
 const Items = require('./items-model')
 
 router.get('/user/:id', (req,res) => {
@@ -12,7 +10,7 @@ router.get('/user/:id', (req,res) => {
         .catch((error) => {
             res.status(500).json({ error: error.message });
           });
-})
+}) 
 
 router.get('/', (req, res) => {
     Items.getAllItems()
