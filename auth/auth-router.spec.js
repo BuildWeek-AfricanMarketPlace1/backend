@@ -1,4 +1,3 @@
-const { expectCt } = require('helmet')
 const request = require('supertest')
 const server = require('../api/server')
 const db = require('../data/dbConfig')
@@ -34,10 +33,12 @@ describe('/api/auth', () => {
     })
     describe('POST /login', () => {
         it('returns status 200', async () => {
-            const res = request(server)
+            const res = await request(server)
                 .post('/api/auth/login')
                 .send(testLogin)
-            expect(res.status).toBe(200)
+                console.log(res.status)
+                const resp = res.status
+            expect(resp).toBe(200)
         })
         it("returns a token", async () => {
             const res = await request(server)
