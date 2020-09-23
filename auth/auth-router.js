@@ -24,7 +24,7 @@ router.post('/register', (req, res) => {
             });
     } else {
         res.status(400).json({
-            message: "please provide email and password and the password shoud be alphanumeric",
+            message: "please provide email and password and the password should be alphanumeric",
         });
     }
 
@@ -32,14 +32,14 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  const { email, password } = req.body;
+  const { id, email, password } = req.body;
     if (isValid(req.body)) {
         Users.findBy({ email: email })
             .then(([user]) => {
                 if (user && bcryptjs.compareSync(password, user.password)) {
                     const token = makeJwt(user);
-                  
-                    res.status(200).json({ token });
+                  console.log(id)
+                    res.status(200).json({ id: user.id, token  });
                 } else {
                     res.status(401).json({ message: "Invalid credentials" });
                 }

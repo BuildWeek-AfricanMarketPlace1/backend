@@ -5,13 +5,13 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('locations').insert([
-        {name: 'Nigeria'},
-        {name: 'Kenya'},
-        {name: 'Ethiopia'},
-        {name: 'Tanzania'},
-        {name: 'Egypt'},
-        {name: 'Uganda'},
-        {name: 'Morocco'},
+        {locname: 'Nigeria'},
+        {locname: 'Kenya'},
+        {locname: 'Ethiopia'},
+        {locname: 'Tanzania'},
+        {locname: 'Egypt'},
+        {locname: 'Uganda'},
+        {locname: 'Morocco'},
       ]);
     });
 };
