@@ -24,7 +24,7 @@ router.post('/register', (req, res) => {
             });
     } else {
         res.status(400).json({
-            message: "please provide email and password and the password shoud be alphanumeric",
+            message: "please provide email and password and the password should be alphanumeric",
         });
     }
 

@@ -36,8 +36,8 @@ API - These are the endpoints and required information
 
 | Method | Endpoint           | Need Auth? | Description                            |
 | ------ | ------------------ | ---------- | -------------------------------------- |
-| GET    | /api/categories    | Yes        | Get all categories                    |
-| GET    | /api/categories/:id| Yes        | Get category by id                    |
-| POST   | /api/categories    | Yes        | Add category                          |
-| PUT    | /api/categories/:id| Yes        | Edit category by id                   |
-| DELETE | /api/categories/:id| Yes        | Deletes a specific category by id     |
+| GET    | /api/categories    | Yes        | Get all categories                     |
+| GET    | /api/categories/:id| Yes        | Get category by id                     |
+| POST   | /api/categories    | Yes        | Add category                           |
+| PUT    | /api/categories/:id| Yes        | Edit category by id                    |
+| DELETE | /api/categories/:id| Yes        | Deletes a specific category by id      |
