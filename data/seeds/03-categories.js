@@ -5,11 +5,10 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('categories').insert([
-        {name: 'Animal Products'},
-        {name: 'Beans'},
-        {name: 'Cereals'},
-        {name: 'Fruits'},
-        {name: 'Vegetables'},
+        {catname: 'Animal Products'},
+        {catname: 'Beans'},
+        {catname: 'Fruits'},
+        {catname: 'Vegetables'},
       ]);
     });
 };
