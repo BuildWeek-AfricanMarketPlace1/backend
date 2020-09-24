@@ -33,7 +33,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/user', (req, res) => {
-    Items.addItem(req.body)
+    Items.addItemBy(req.body)
         .then(resp => {
             res.status(201).json({ data: resp })
         })

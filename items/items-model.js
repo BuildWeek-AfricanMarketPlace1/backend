@@ -4,7 +4,7 @@ module.exports = {
     getItemsByUserId,
     getAllItems,
     getItemById,
-    addItem,
+    addItemBy,
     updateItem,
     removeItem
 }
@@ -35,11 +35,15 @@ function getItemById(id) {
         .where({ 'items.id': id })
 }
 
-function addItem(item) {
+function addItemBy(item) {
    return db('items')
         .insert(item)
+        .then(resp => {
+           return getItemById(resp) 
+        })
         
 }
+
 
 function updateItem(item, id) {
     return db('items')
