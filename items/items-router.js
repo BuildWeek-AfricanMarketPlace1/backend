@@ -5,7 +5,7 @@ router.get('/user/:id', (req,res) => {
     const { id } = req.params
     Items.getItemsByUserId(id)
         .then(resp => {
-            res.status(200).json({ resp })
+            res.status(200).json({ data: resp })
         })
         .catch((error) => {
             res.status(500).json({ error: error.message });
