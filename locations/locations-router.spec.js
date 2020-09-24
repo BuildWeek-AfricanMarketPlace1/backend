@@ -13,7 +13,7 @@ describe('locations-router', () => {
                 .send({ locname: 'South Africa' })
             const resp = await db('locations')
             expect(resp).toHaveLength(1)
-            expect(resp[0]).toEqual({"id": 1, "locname": "South Africa"})
+            expect(resp[0]).toEqual({ "id": 1, "locname": "South Africa" })
         })
     })
     describe('DELETE /api/locations/:id', () => {
@@ -22,6 +22,16 @@ describe('locations-router', () => {
                 .delete('/api/locations/1')
             const resp = await db('locations')
             expect(resp).toHaveLength(0)
+        })
+    })
+    describe('UPDATE /api/locations/:id', () => {
+        it('should update location', async () => {
+            const res = await request(server)
+                .post('/api/locations')
+                .send({ locname: 'South Africa' })
+                .update({ 'id': 10, 'locname': 'North Africa' })
+            const resp = db('locations')
+            expect(resp[0]).toEqual({ 'id': 10, 'locname': 'North Africa' })
         })
     })
 })

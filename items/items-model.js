@@ -14,7 +14,7 @@ function getItemsByUserId(id) {
         .join('users', 'items.user_id', 'users.id')
         .join('locations', 'locations.id', 'items.location_id')
         .join('categories', 'categories.id', 'items.category_id')
-        .select('items.id', 'users.id', 'users.email', 'locations.locname', 'categories.catname',
+        .select('items.id', 'users.email', 'locations.locname', 'categories.catname',
         'items.name', 'items.description', 'items.price')
         .where({ "items.user_id": id })
 }
