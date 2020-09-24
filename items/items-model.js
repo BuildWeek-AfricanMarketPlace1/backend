@@ -12,7 +12,10 @@ module.exports = {
 function getItemsByUserId(id) {
     return db('items')
         .join('users', 'items.user_id', 'users.id')
-        .select('users.id', 'users.email', 'items.name')
+        .join('locations', 'locations.id', 'items.location_id')
+        .join('categories', 'categories.id', 'items.category_id')
+        .select('items.id', 'users.id', 'users.email', 'locations.locname', 'categories.catname',
+        'items.name', 'items.description', 'items.price')
         .where({ "items.user_id": id })
 }
 
