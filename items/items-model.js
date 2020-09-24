@@ -35,9 +35,16 @@ function getItemById(id) {
         .where({ 'items.id': id })
 }
 
-function addItemBy(item) {
+function addItemBy(item, user_id) {
    return db('items')
-        .insert(item)
+        .insert({
+            user_id: user_id,
+            location_id: item.location_id,
+            category_id: item.category_id,
+            name: item.name,
+            description: item.description,
+            price: item.price
+        })
         .then(resp => {
            return getItemById(resp) 
         })

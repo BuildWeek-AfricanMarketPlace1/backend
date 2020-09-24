@@ -32,8 +32,8 @@ router.get('/:id', (req, res) => {
           })
 })
 
-router.post('/user', (req, res) => {
-    Items.addItemBy(req.body)
+router.post('/user/:id', (req, res) => {
+    Items.addItemBy(req.body, req.params.id)
         .then(resp => {
             res.status(201).json({ data: resp })
         })
