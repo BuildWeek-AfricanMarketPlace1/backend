@@ -7,6 +7,7 @@ const authRouter = require("../auth/auth-router.js");
 const itemsRouter = require('../items/items-router')
 const locationsRouter = require('../locations/locations-router')
 const categoriesRouter = require('../categories/categories-router')
+const authentication = require('../auth/authenticate-middleware')
 
 const server = express();
 
@@ -20,9 +21,9 @@ server.use(
 );
 
 server.use('/api/auth', authRouter)
-server.use('/api/items', itemsRouter)
-server.use('/api/locations', locationsRouter)
-server.use('/api/categories', categoriesRouter)
+server.use('/api/items', authentication, itemsRouter)
+server.use('/api/locations', authentication, locationsRouter)
+server.use('/api/categories', authentication, categoriesRouter)
 
 
 server.get("/", (req, res) => {

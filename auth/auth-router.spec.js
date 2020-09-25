@@ -22,7 +22,7 @@ describe('/api/auth', () => {
                 .send(testRegister)
             expect(res.status).toBe(201)
         })
-        it('can post a new user', async () => {
+        it('can post a new user', async () => { 
             const res = await request(server)
                 .post('/api/auth/register')
                 .send(testRegister)
