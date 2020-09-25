@@ -21,9 +21,9 @@ server.use(
 );
 
 server.use('/api/auth', authRouter)
-server.use('/api/items', authentication, itemsRouter)
-server.use('/api/locations', authentication, locationsRouter)
-server.use('/api/categories', authentication, categoriesRouter)
+server.use('/api/items', itemsRouter)
+server.use('/api/locations', locationsRouter)
+server.use('/api/categories', categoriesRouter)
 
 
 server.get("/", (req, res) => {
